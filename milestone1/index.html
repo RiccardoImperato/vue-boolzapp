@@ -28,7 +28,7 @@
                     <div class="user-pic">
                         <img src="./img/avatar_io.jpg" alt="">
                     </div>
-                    <span class="user">Nome Utente</span>
+                    <span>Nome Utente</span>
                     <!-- /User profile -->
                     <!-- Icons -->
                     <ul class="icons">
@@ -62,15 +62,57 @@
                 <!-- User search -->
                 <div class="user-input">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input type="text" class="user-search" placeholder="Cerca o inizia una nuova chat">
-                </div>
-                <div class="users-container">
+                    <input type="text" class="user-search" placeholder="Cerca o inizia una nuova chat" id="search">
                 </div>
                 <!-- /User search -->
+                <!-- Users list -->
+                <div class="users-container">
+                    <div class="user-card" v-for="(contact, index) in contacts">
+                        <div class="user-pic">
+                            <img :src="contact.avatar" alt="">
+                        </div>
+                        <div>{{ contact.name }}</div>
+                    </div>
+                </div>
+                <!-- /Users list -->
             </div>
             <!-- Right column -->
             <div class="right">
-                <div class="right-header"></div>
+                <!-- Right header -->
+                <div class="right-header">
+                    <div class="user-pic">
+                        <img src="./img/avatar_5.jpg" alt="">
+                    </div>
+                    <span>Nome Utente</span>
+                    <ul class="icons">
+                        <li>
+                            <i class="fa-solid fa-circle-notch"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-paperclip"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Right header -->
+                <!-- Right Main -->
+                <div class="right-main">
+                    <!-- Messages -->
+                </div>
+                <!-- /Right Main -->
+                <!-- Right footer -->
+                <div class="right-footer">
+                    <div class="icon">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <input type="text" placeholder="Scrivi un messaggio" id="message-text">
+                    <div class="icon">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+                <!-- /Right footer -->
             </div>
             <!-- /Right column -->
         </div>

@@ -28,6 +28,8 @@ ul {
 
 i {
     color: #b1b1b1;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .bell i {
@@ -43,14 +45,13 @@ i {
 
 .container {
     display: flex;
-    width: 1180px;
-    height: 700px;
+    max-width: 1380px;
     margin: 0 auto;
     background-color: #fff;
+    border: 1px solid #d3d3d3;
 }
 
 .left {
-    height: 100%;
     width: 30%;
     border-right: 1px solid #b1b1b1;
     background-color: #fafafa;
@@ -58,8 +59,14 @@ i {
 
 .right {
     background-image: url(../img/mine.jpg);
-    height: 100%;
     width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-main {
+    height: 100%;
+    overflow-y: scroll;
 }
 
 /*/ Common */
@@ -78,15 +85,25 @@ i {
 
 /* User */
 
+.users-container {
+    overflow-y: scroll;
+}
+
+.users-container .user-card {
+    cursor: pointer;
+}
+
 .user-card {
-    padding: 0 10px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .user-pic {
     height: 50px;
     width: 50px;
+    margin-right: 10px;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -95,10 +112,6 @@ i {
     height: 100%;
     width: 100%;
     object-fit: cover;
-}
-
-.user {
-    margin-left: 10px;
 }
 
 .icons {
@@ -163,5 +176,49 @@ i {
 
 /*/ User input */
 
+/* Users list */
+
+.users-container {
+    margin: 0 10px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+}
+
+/*/ Users list */
 
 /*/ Left */
+
+/* Right */
+
+.right-header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.right-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 70px;
+    height: 70px;
+    background-color: #f3eeea;
+    margin-top: auto;
+}
+
+.right-footer .icon {
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+#message-text {
+    all: unset;
+    font-size: 12px;
+    padding: 0 10px;
+    height: 32px;
+    width: 80%;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+}
+
+/*/ Right */
