@@ -18,6 +18,63 @@
 </head>
 
 <body>
+    <div id="app">
+        <div class="container">
+            <!-- Left column -->
+            <div class="left">
+                <!-- Left header -->
+                <div class="left-header user-card">
+                    <!-- User profile -->
+                    <div class="user-pic">
+                        <img src="./img/avatar_io.jpg" alt="">
+                    </div>
+                    <span class="user">Nome Utente</span>
+                    <!-- /User profile -->
+                    <!-- Icons -->
+                    <ul class="icons">
+                        <li>
+                            <i class="fa-solid fa-circle-notch"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-message"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                    </ul>
+                    <!-- /Icons -->
+                </div>
+                <!-- /Left header -->
+                <!-- Banner -->
+                <div class="user-card bell">
+                    <div class="user-pic">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div>
+                        Ricevi notifiche di nuovi messaggi
+                        <br>
+                        <a href="#">
+                            Attiva notifiche desktop
+                        </a>
+                    </div>
+                </div>
+                <!-- /Banner -->
+                <!-- User search -->
+                <div class="user-input">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" class="user-search" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <div class="users-container">
+                </div>
+                <!-- /User search -->
+            </div>
+            <!-- Right column -->
+            <div class="right">
+                <div class="right-header"></div>
+            </div>
+            <!-- /Right column -->
+        </div>
+    </div>
     <!-- Vue js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /Vue js -->
