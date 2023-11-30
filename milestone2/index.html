@@ -26,9 +26,9 @@
                 <div class="left-header user-card">
                     <!-- User profile -->
                     <div class="user-pic">
-                        <img src="./img/avatar_io.jpg" alt="">
+                        <img :src="user.avatar" alt="">
                     </div>
-                    <span>Nome Utente</span>
+                    <span>{{ user.name }}</span>
                     <!-- /User profile -->
                     <!-- Icons -->
                     <ul class="icons">
@@ -67,9 +67,9 @@
                 <!-- /User search -->
                 <!-- Users list -->
                 <div class="users-container">
-                    <div v-for="(contact, index) in contacts" class="user-card">
+                    <div v-for="(contact, index) in contacts" class="user-card" @click="selectUser(index)">
                         <div class="user-pic">
-                            <img :src="contact.avatar" alt="">
+                            <img :src="contact.avatar" alt="contact.name">
                         </div>
                         <div>{{ contact.name }}</div>
                     </div>
@@ -82,9 +82,9 @@
                 <!-- Right header -->
                 <div class="right-header">
                     <div class="user-pic">
-                        <img src="./img/avatar_5.jpg" alt="">
+                        <img :src="contacts[currentIndex].avatar" alt="contacts[currentIndex].name">
                     </div>
-                    <span>Nome Utente</span>
+                    <span>{{ contacts[currentIndex].name }}</span>
                     <ul class="icons">
                         <li>
                             <i class="fa-solid fa-circle-notch"></i>
@@ -101,14 +101,11 @@
                 <!-- Right Main -->
                 <div class="right-main">
                     <!-- Messages -->
-                    <!-- <div class="message sent">
-                        <span class="message-text">{{ contacts[0].messages[0].message }}</span>
-                        <span class="message-time">{{ contacts[0].messages[0].date }}</span>
+                    <div v-for="(message, status) in contacts[currentIndex].messages" class="message"
+                        :class="message.status === 'sent' ? 'sent' : 'received'">
+                        <span class="message-text">{{ message.message }}</span>
+                        <span class="message-time">{{ message.date }}</span>
                     </div>
-                    <div class="message received">
-                        <span class="message-text">{{ contacts[0].messages[2].message }}</span>
-                        <span class="message-time">{{ contacts[0].messages[2].date }}</span>
-                    </div> -->
                     <!-- /Messages -->
                 </div>
                 <!-- /Right Main -->

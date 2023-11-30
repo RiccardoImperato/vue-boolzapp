@@ -5,6 +5,10 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            user: {
+                name: 'Riccardo',
+                avatar: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -169,6 +173,12 @@ createApp({
                 }
             ],
             currentIndex: 0,
+        }
+    },
+    methods: {
+        selectUser(index) {
+            this.currentIndex = index;
+            console.log(index);
         }
     }
 }).mount('#app');
