@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Style -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <!-- Left column -->
+            <div class="left">
+                <!-- Left header -->
+                <div class="left-header user-card">
+                    <!-- User profile -->
+                    <div class="user-pic">
+                        <img :src="user.avatar" alt="">
+                    </div>
+                    <span>{{ user.name }}</span>
+                    <!-- /User profile -->
+                    <!-- Icons -->
+                    <ul class="icons">
+                        <li>
+                            <i class="fa-solid fa-circle-notch"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-message"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                    </ul>
+                    <!-- /Icons -->
+                </div>
+                <!-- /Left header -->
+                <!-- Banner -->
+                <div class="user-card bell">
+                    <div class="user-pic">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div>
+                        Ricevi notifiche di nuovi messaggi
+                        <br>
+                        <a href="#">
+                            Attiva notifiche desktop
+                        </a>
+                    </div>
+                </div>
+                <!-- /Banner -->
+                <!-- User search -->
+                <div class="user-input">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" class="user-search" placeholder="Cerca o inizia una nuova chat" id="search">
+                </div>
+                <!-- /User search -->
+                <!-- Users list -->
+                <div class="users-container">
+                    <div v-for="(contact, index) in contacts" class="user-card" @click="selectUser(index)">
+                        <div class="user-pic">
+                            <img :src="contact.avatar" alt="contact.name">
+                        </div>
+                        <div>{{ contact.name }}</div>
+                    </div>
+                </div>
+                <!-- /Users list -->
+            </div>
+            <!-- /Left column -->
+            <!-- Right column -->
+            <div class="right">
+                <!-- Right header -->
+                <div class="right-header">
+                    <div class="user-pic">
+                        <img :src="contacts[currentIndex].avatar" alt="contacts[currentIndex].name">
+                    </div>
+                    <span>{{ contacts[currentIndex].name }}</span>
+                    <ul class="icons">
+                        <li>
+                            <i class="fa-solid fa-circle-notch"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-paperclip"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Right header -->
+                <!-- Right Main -->
+                <div class="right-main">
+                    <!-- Messages -->
+                    <div v-for="(message, status) in contacts[currentIndex].messages" class="message"
+                        :class="message.status === 'received' ? 'received' : 'sent'">
+                        <span class="message-text">{{ message.message }}</span>
+                        <span class="message-time">{{ message.date }}</span>
+                    </div>
+                    <!-- /Messages -->
+                </div>
+                <!-- /Right Main -->
+                <!-- Right footer -->
+                <div class="right-footer">
+                    <div class="icon">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <input v-model="newMessage" @keydown.enter="sendMessage()" @keyup.enter="receiveMessage()"
+                        type="text" placeholder="Scrivi un messaggio" id="message-input">
+                    <div class="icon">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+                <!-- /Right footer -->
+            </div>
+            <!-- /Right column -->
+        </div>
+    </div>
+    <!-- Vue js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- /Vue js -->
+    <!-- My script -->
+    <script src="./js/main.js"></script>
+    <!--/ My script -->
+</body>
+
+</html>
