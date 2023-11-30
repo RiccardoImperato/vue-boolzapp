@@ -173,6 +173,7 @@ createApp({
                 }
             ],
             currentIndex: 0,
+            currentTimeout: null,
             newMessage: null,
             keyContact: null,
         }
@@ -188,9 +189,11 @@ createApp({
                 this.newMessage = null;
             }
         },
-        receiveMessage() {
-            setTimeout(1000);
+        messageIn() {
             this.contacts[this.currentIndex].messages.push({ message: 'Ok', status: 'received' });
+        },
+        receiveMessage() {
+            this.currentTimeout = setTimeout(this.messageIn, 1000);
         },
         filteredContact() {
             if (this.keyContact !== null) {
