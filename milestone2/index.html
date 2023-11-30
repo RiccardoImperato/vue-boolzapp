@@ -102,7 +102,7 @@
                 <div class="right-main">
                     <!-- Messages -->
                     <div v-for="(message, status) in contacts[currentIndex].messages" class="message"
-                        :class="message.status === 'sent' ? 'sent' : 'received'">
+                        :class="message.status === 'received' ? 'received' : 'sent'">
                         <span class="message-text">{{ message.message }}</span>
                         <span class="message-time">{{ message.date }}</span>
                     </div>
