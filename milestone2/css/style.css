@@ -1,0 +1,251 @@
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*/ Reset */
+
+/* Typo */
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/*/ Typo */
+
+/* Common */
+
+body {
+    padding: 20px;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #009788 120px, #dadbd5 0);
+}
+
+ul {
+    list-style-type: none;
+}
+
+i {
+    color: #b1b1b1;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.left-header,
+.right-header {
+    height: 70px;
+    background-color: #eaeaea;
+}
+
+.bell i {
+    color: #8edafc;
+
+}
+
+.container {
+    display: flex;
+    height: 800px;
+    max-width: 1380px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+}
+
+/*/ Common */
+
+/* Left */
+
+.left {
+    width: 30%;
+    border-right: 1px solid #b1b1b1;
+    background-color: #fafafa;
+    overflow: hidden;
+
+}
+
+/* User */
+
+.users-container .user-card {
+    cursor: pointer;
+}
+
+.user-card {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.user-pic {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-pic img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.icons {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+}
+
+/*/ User */
+
+/* Banner */
+
+.bell {
+    padding: 10px 20px;
+    background-color: #8edafc;
+    font-size: 15px;
+}
+
+.bell .user-pic {
+    background-color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.bell a {
+    font-size: 12px;
+    color: #808080;
+}
+
+/*/ Banner */
+
+/* User input */
+
+.user-input {
+    font-size: 12px;
+    padding: 6px 10px;
+    display: flex;
+}
+
+.user-input button {
+    all: unset;
+    text-align: center;
+    padding: 0 15px;
+    height: 32px;
+    width: 10%;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    border-right: 0;
+}
+
+.user-search {
+    all: unset;
+    height: 32px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    border-left: 0;
+}
+
+/*/ User input */
+
+/* Users list */
+
+.users-container {
+    height: 600px;
+    overflow-y: auto;
+    margin: 0 10px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+}
+
+/*/ Users list */
+
+/*/ Left */
+
+/* Right */
+
+.right {
+    background-image: url(../img/mine.jpg);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-main {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.right-header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.right-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 70px;
+    height: 70px;
+    background-color: #f3eeea;
+    margin-top: auto;
+}
+
+.right-footer .icon {
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+#message-input {
+    all: unset;
+    font-size: 12px;
+    padding: 0 10px;
+    height: 32px;
+    width: 80%;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+}
+
+/* Messages */
+
+.right-main {
+    padding: 50px 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    margin: 8px 0;
+    width: 40%;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.message-time {
+    font-size: 8px;
+    color: #808080;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+}
+
+.message.sent {
+    background-color: #ffffff;
+}
+
+.message.received {
+    align-self: flex-end;
+    background-color: #d5f9ba;
+}
+
+/*/ Messages */
+
+/*/ Right */
