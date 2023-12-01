@@ -73,10 +73,18 @@ i {
 }
 
 .user-card {
-    padding: 10px 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #f5f5f5;
+}
+
+.user-card.active {
+    background-color: #f5f5f5;
+}
+
+.users-container .user-card:last-child {
+    border-bottom: 0;
 }
 
 .user-pic {
@@ -159,8 +167,21 @@ i {
     height: 600px;
     overflow-y: auto;
     margin: 0 10px;
+    position: relative;
     background-color: #fff;
     border: 1px solid #f5f5f5;
+}
+
+.last-message {
+    font-size: 12px;
+    color: #808080;
+}
+
+.last-access {
+    font-size: 12px;
+    color: #808080;
+    margin-left: auto;
+    margin-bottom: auto;
 }
 
 /*/ Users list */
@@ -203,16 +224,12 @@ i {
     position: relative;
 }
 
-.message-text {
-    line-height: 32px;
-}
-
 .message-time {
     font-size: 8px;
     color: #808080;
     position: absolute;
-    right: 8px;
-    bottom: 8px;
+    right: 5px;
+    bottom: 5px;
 }
 
 .message.received {

@@ -68,11 +68,16 @@
                 <!-- /User search -->
                 <!-- Users list -->
                 <div class="users-container">
-                    <div v-for="(contact, index) in filteredContact()" class="user-card" @click="selectUser(index)">
+                    <div v-for="(contact, index) in filteredContact()" class="user-card"
+                        :class="{active: currentIndex === index}" @click="selectUser(index)">
                         <div class="user-pic">
-                            <img :src="contact.avatar" alt="contact.name">
+                            <img :src="contact.avatar" :alt="contact.name">
                         </div>
-                        <div>{{ contact.name }}</div>
+                        <div>
+                            <div>{{ contact.name }}</div>
+                            <span class="last-message">Ultimo messaggio</span>
+                        </div>
+                        <span class="last-access">12.00</span>
                     </div>
                 </div>
                 <!-- /Users list -->
@@ -85,7 +90,10 @@
                     <div class="user-pic">
                         <img :src="contacts[currentIndex].avatar" alt="contacts[currentIndex].name">
                     </div>
-                    <span>{{ contacts[currentIndex].name }}</span>
+                    <div>
+                        <h4>{{ contacts[currentIndex].name }}</h4>
+                        <span class="last-message">Ultimo accesso oggi alle 12.00</span>
+                    </div>
                     <ul class="icons">
                         <li>
                             <i class="fa-solid fa-circle-notch"></i>
