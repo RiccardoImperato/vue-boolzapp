@@ -182,6 +182,7 @@ createApp({
         selectUser(index) {
             this.currentIndex = index;
             this.newMessage = null;
+            //console.log(this.lastText());
         },
         sendMessage() {
             if (this.newMessage !== null) {
@@ -195,6 +196,9 @@ createApp({
         receiveMessage() {
             this.currentTimeout = setTimeout(this.messageIn, 1000);
         },
+        // lastText() {
+        //     return this.contacts[this.currentIndex].messages.slice(-1)[0].message;
+        // },
         filteredContact() {
             if (this.keyContact !== null) {
                 return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.keyContact.toLowerCase()));
@@ -204,5 +208,4 @@ createApp({
         }
     },
 }).mount('#app');
-
 

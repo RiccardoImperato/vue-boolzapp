@@ -88,10 +88,10 @@
                 <!-- Right header -->
                 <div class="right-header">
                     <div class="user-pic">
-                        <img :src="contacts[currentIndex].avatar" alt="contacts[currentIndex].name">
+                        <img :src="filteredContact()[currentIndex].avatar" alt="contacts[currentIndex].name">
                     </div>
                     <div>
-                        <h4>{{ contacts[currentIndex].name }}</h4>
+                        <h4>{{ filteredContact()[currentIndex].name }}</h4>
                         <span class="last-message">Ultimo accesso oggi alle 12.00</span>
                     </div>
                     <ul class="icons">
