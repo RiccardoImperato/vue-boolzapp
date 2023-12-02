@@ -24,6 +24,10 @@ body {
     background-image: linear-gradient(to bottom, #009788 120px, #dadbd5 0);
 }
 
+.darkmode {
+    filter: invert();
+}
+
 ul {
     list-style-type: none;
 }

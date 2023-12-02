@@ -179,6 +179,7 @@ createApp({
             newMessage: null,
             receivedMessage: null,
             keyContact: null,
+            darkMode: false,
         }
     },
     methods: {
@@ -207,6 +208,14 @@ createApp({
             }
             else {
                 return this.contacts;
+            }
+        },
+        changeMode() {
+            if (this.darkMode === false) {
+                this.darkMode = true
+            }
+            else {
+                this.darkMode = false
             }
         },
     },
