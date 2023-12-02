@@ -191,14 +191,11 @@ createApp({
                 this.newMessage = this.contacts[this.currentIndex].messages.push({ date: this.getTime(), message: this.newMessage, status: 'sent' });
                 this.newMessage = null;
             }
+            setTimeout(this.messageIn, 1000);
         },
         messageIn() {
             this.contacts[this.currentIndex].messages.push(this.receivedMessage = { date: this.getTime(), message: 'Ok', status: 'received' });
-            console.log(this.receivedMessage);
             return this.receivedMessage
-        },
-        receiveMessage() {
-            this.currentTimeout = setTimeout(this.messageIn, 1000);
         },
         getTime() {
             const DateTime = luxon.DateTime;
