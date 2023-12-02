@@ -174,6 +174,7 @@ createApp({
                     ],
                 }
             ],
+            currentMessage: '',
             currentIndex: 0,
             currentTimeout: null,
             newMessage: null,
@@ -186,6 +187,10 @@ createApp({
         selectUser(index) {
             this.currentIndex = index;
             this.newMessage = null;
+        },
+        selectMessage(message) {
+            this.currentMessage = message;
+            console.log(this.currentMessage);
         },
         sendMessage() {
             if (this.newMessage !== null) {

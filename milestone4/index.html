@@ -120,7 +120,19 @@
                         :class="message.status === 'received' ? 'received' : 'sent'">
                         <span class="message-text">{{ message.message }}</span>
                         <span class="message-time">{{ message.date }}</span>
-                        <span class="message-option"><i class="fa-solid fa-chevron-down"></i></span>
+                        <div class="dropdown">
+                            <i class="fa-solid fa-chevron-down drop"></i>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Message info</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Delete message</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <!-- /Messages -->
                 </div>
