@@ -129,7 +129,8 @@
                     <input v-model="newMessage" @keydown.enter="sendMessage()" type="text"
                         placeholder="Scrivi un messaggio" id="message-input">
                     <div class="icon">
-                        <i class="fa-solid fa-microphone"></i>
+                        <i class="fa-solid fa-microphone" v-if="newMessage === null"></i>
+                        <i class="fa-solid fa-paper-plane" @click="sendMessage()" v-else></i>
                     </div>
                 </div>
                 <!-- /Right footer -->
