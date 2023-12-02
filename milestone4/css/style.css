@@ -34,7 +34,7 @@ i {
     font-size: 20px;
 }
 
-.left-header,
+.d-block .left-header,
 .right-header {
     height: 70px;
     background-color: #eaeaea;
@@ -42,7 +42,6 @@ i {
 
 .bell i {
     color: #8edafc;
-
 }
 
 .container {
@@ -239,6 +238,14 @@ i {
 .message.sent {
     align-self: flex-end;
     background-color: #d5f9ba;
+}
+
+.message-option {
+    display: none;
+    font-size: 15px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
 }
 
 /*/ Messages */

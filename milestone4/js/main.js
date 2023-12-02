@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 const { createApp } = Vue;
 
 createApp({
@@ -175,6 +177,7 @@ createApp({
             currentIndex: 0,
             currentTimeout: null,
             newMessage: null,
+            receivedMessage: null,
             keyContact: null,
         }
     },
@@ -182,30 +185,32 @@ createApp({
         selectUser(index) {
             this.currentIndex = index;
             this.newMessage = null;
-            //console.log(this.lastText());
         },
         sendMessage() {
             if (this.newMessage !== null) {
-                this.contacts[this.currentIndex].messages.push({ message: this.newMessage, status: 'sent' });
+                this.newMessage = this.contacts[this.currentIndex].messages.push({ date: this.getTime(), message: this.newMessage, status: 'sent' });
                 this.newMessage = null;
             }
         },
         messageIn() {
-            this.contacts[this.currentIndex].messages.push({ message: 'Ok', status: 'received' });
+            this.contacts[this.currentIndex].messages.push(this.receivedMessage = { date: this.getTime(), message: 'Ok', status: 'received' });
+            console.log(this.receivedMessage);
+            return this.receivedMessage
         },
         receiveMessage() {
             this.currentTimeout = setTimeout(this.messageIn, 1000);
         },
-        // lastText() {
-        //     return this.contacts[this.currentIndex].messages.slice(-1)[0].message;
-        // },
+        getTime() {
+            const DateTime = luxon.DateTime;
+            return `${DateTime.now().hour}:${DateTime.now().minute}`;
+        },
         filteredContact() {
             if (this.keyContact !== null) {
                 return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.keyContact.toLowerCase()));
-            } else {
+            }
+            else {
                 return this.contacts;
             }
-        }
+        },
     },
 }).mount('#app');
-

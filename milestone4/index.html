@@ -68,7 +68,7 @@
                 <!-- /User search -->
                 <!-- Users list -->
                 <div class="users-container">
-                    <div v-for="(contact, index) in filteredContact()" class="user-card"
+                    <div v-for="(contact, index, status) in filteredContact()" class="user-card"
                         :class="{active: currentIndex === index}" @click="selectUser(index)">
                         <div class="user-pic">
                             <img :src="contact.avatar" :alt="contact.name">
@@ -92,7 +92,9 @@
                     </div>
                     <div>
                         <h4>{{ filteredContact()[currentIndex].name }}</h4>
-                        <span class="last-message">Ultimo accesso oggi alle 12.00</span>
+                        <span class="last-message" v-if="receivedMessage !== null">Ultimo accesso oggi alle {{
+                            receivedMessage.date }}</span>
+                        <span class="last-message" v-else>Ultimo accesso oggi alle 12.00</span>
                     </div>
                     <ul class="icons">
                         <li>
@@ -114,6 +116,7 @@
                         :class="message.status === 'received' ? 'received' : 'sent'">
                         <span class="message-text">{{ message.message }}</span>
                         <span class="message-time">{{ message.date }}</span>
+                        <span class="message-option"><i class="fa-solid fa-chevron-down"></i></span>
                     </div>
                     <!-- /Messages -->
                 </div>
@@ -137,6 +140,9 @@
     <!-- Vue js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /Vue js -->
+    <!-- Luxon script -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <!-- /Luxon script -->
     <!-- My script -->
     <script src="./js/main.js"></script>
     <!--/ My script -->
