@@ -75,9 +75,9 @@
                         </div>
                         <div>
                             <div>{{ contact.name }}</div>
-                            <span class="last-message">Ultimo messaggio</span>
+                            <span class="last-message">{{ getLastMessage(contact) }}</span>
                         </div>
-                        <span class="last-access">12.00</span>
+                        <span class="last-access">{{ getLastDate(contact) }}</span>
                     </div>
                 </div>
                 <!-- /Users list -->

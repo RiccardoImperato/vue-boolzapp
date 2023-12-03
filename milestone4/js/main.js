@@ -7,6 +7,13 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            currentMessage: '',
+            currentIndex: 0,
+            currentTimeout: null,
+            newMessage: null,
+            receivedMessage: null,
+            keyContact: null,
+            darkMode: false,
             user: {
                 name: 'Riccardo',
                 avatar: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
@@ -174,13 +181,6 @@ createApp({
                     ],
                 }
             ],
-            currentMessage: '',
-            currentIndex: 0,
-            currentTimeout: null,
-            newMessage: null,
-            receivedMessage: null,
-            keyContact: null,
-            darkMode: false,
         }
     },
     methods: {
@@ -202,6 +202,14 @@ createApp({
         messageIn() {
             this.contacts[this.currentIndex].messages.push(this.receivedMessage = { date: this.getTime(), message: 'Ok', status: 'received' });
             return this.receivedMessage
+        },
+        getLastMessage(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1];
+            return lastMessage.message;
+        },
+        getLastDate(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1];
+            return lastMessage.date;
         },
         getTime() {
             const DateTime = luxon.DateTime;
