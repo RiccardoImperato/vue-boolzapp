@@ -190,7 +190,6 @@ createApp({
         },
         selectMessage(message) {
             this.currentMessage = message;
-            console.log(this.currentMessage);
         },
         sendMessage() {
             if (this.newMessage !== null) {
@@ -213,9 +212,10 @@ createApp({
         },
         getTime() {
             const DateTime = luxon.DateTime;
-            return `${DateTime.now().hour}:${DateTime.now().minute}`;
+            const dt = DateTime.now();
+            return `${dt.hour}:${dt.minute}`;
         },
-        filteredContact() {
+        filteredContacts() {
             if (this.keyContact !== null) {
                 return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.keyContact.toLowerCase()));
             }
