@@ -26,7 +26,7 @@
                 <div class="left-header user-card">
                     <!-- User profile -->
                     <div class="user-pic">
-                        <img :src="user.avatar" alt="" :class="{darkmode: darkMode === true}">
+                        <img :src="user.avatar" alt="Avatar" :class="{darkmode: darkMode === true}">
                     </div>
                     <span>{{ user.name }}</span>
                     <!-- /User profile -->
@@ -88,6 +88,9 @@
                 <!-- Right header -->
                 <div class="right-header">
                     <div v-if="filteredContacts().length === 0" class="current-user">
+                        <div class="user-pic">
+                            <img :src="user.avatar" alt="Avatar" :class="{darkmode: darkMode === true}">
+                        </div>
                     </div>
                     <div v-else class="current-user">
                         <div class="user-pic">

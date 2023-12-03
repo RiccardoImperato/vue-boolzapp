@@ -99,7 +99,6 @@ i {
 }
 
 .user-pic img {
-    height: 100%;
     width: 100%;
     object-fit: cover;
 }
@@ -207,7 +206,7 @@ i {
 }
 
 .right-header {
-    padding: 30px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
 }

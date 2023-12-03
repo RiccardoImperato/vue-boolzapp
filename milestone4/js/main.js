@@ -1,13 +1,11 @@
 'use strict';
 
-
-
 const { createApp } = Vue;
 
 createApp({
     data() {
         return {
-            currentMessage: '',
+            currentMessage: null,
             currentIndex: 0,
             currentTimeout: null,
             newMessage: null,
@@ -16,7 +14,7 @@ createApp({
             darkMode: false,
             user: {
                 name: 'Riccardo',
-                avatar: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
+                avatar: 'https://social.salework.net/images/default-avatar.jpg'
             },
             contacts: [
                 {
@@ -193,7 +191,7 @@ createApp({
         },
         sendMessage() {
             if (this.newMessage !== null) {
-                this.newMessage = this.contacts[this.currentIndex].messages.push({ date: this.getTime(), message: this.newMessage, status: 'sent' });
+                this.contacts[this.currentIndex].messages.push({ date: this.getTime(), message: this.newMessage, status: 'sent' });
                 this.newMessage = null;
             }
             setTimeout(this.messageIn, 1000);
