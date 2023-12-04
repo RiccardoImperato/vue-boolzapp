@@ -26,9 +26,9 @@
                 <div class="left-header user-card">
                     <!-- User profile -->
                     <div class="user-pic">
-                        <img :src="user.avatar" alt="Avatar" :class="{darkmode: darkMode === true}">
+                        <img :src="user.defaultAvatar" alt="Avatar" :class="{darkmode: darkMode === true}">
                     </div>
-                    <span>{{ user.name }}</span>
+                    <span class="user-name">{{ user.name }}</span>
                     <!-- /User profile -->
                     <!-- Icons -->
                     <ul class="icons">
@@ -40,6 +40,9 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-half-stroke" @click="changeMode()"></i>
                         </li>
                     </ul>
                     <!-- /Icons -->
@@ -74,7 +77,7 @@
                             <img :src="contact.avatar" :alt="contact.name" :class="{darkmode: darkMode === true}">
                         </div>
                         <div>
-                            <div>{{ contact.name }}</div>
+                            <div class="user-name">{{ contact.name }}</div>
                             <span class="last-message">{{ getLastMessage(contact) }}</span>
                         </div>
                         <span class="last-access">{{ getLastDate(contact) }}</span>
@@ -83,13 +86,14 @@
                 <!-- /Users list -->
             </div>
             <!-- /Left column -->
+
             <!-- Right column -->
             <div class="right">
                 <!-- Right header -->
                 <div class="right-header">
                     <div v-if="filteredContacts().length === 0" class="current-user">
                         <div class="user-pic">
-                            <img :src="user.avatar" alt="Avatar" :class="{darkmode: darkMode === true}">
+                            <img :src="user.defaultAvatar" alt="Avatar" :class="{darkmode: darkMode === true}">
                         </div>
                     </div>
                     <div v-else class="current-user">
@@ -99,9 +103,7 @@
                         </div>
                         <div>
                             <h4>{{ filteredContacts()[currentIndex].name }}</h4>
-                            <span class="last-message" v-if="receivedMessage !== null">Ultimo accesso oggi alle {{
-                                receivedMessage.date }}</span>
-                            <span class="last-message" v-else>Ultimo accesso oggi alle 12.00</span>
+                            <span class="last-message">Ultimo accesso oggi alle 12.00</span>
                         </div>
                     </div>
                     <ul class="icons">
@@ -113,9 +115,6 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-circle-half-stroke" @click="changeMode()"></i>
                         </li>
                     </ul>
                 </div>
@@ -136,7 +135,7 @@
                                         <a href="#">Message info</a>
                                     </li>
                                     <li>
-                                        <a href="#">Delete message</a>
+                                        <a href="#" @click="deleteMessage(message)">Delete message</a>
                                     </li>
                                 </ul>
                             </div>
@@ -162,6 +161,7 @@
             <!-- /Right column -->
         </div>
     </div>
+
     <!-- Vue js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /Vue js -->

@@ -62,10 +62,11 @@ i {
 /* Left */
 
 .left {
-    width: 30%;
+    width: 100%;
     border-right: 1px solid #b1b1b1;
     background-color: #fafafa;
     overflow: hidden;
+    flex-shrink: 0;
 
 }
 
@@ -96,6 +97,11 @@ i {
     margin-right: 10px;
     border-radius: 50%;
     overflow: hidden;
+    flex-shrink: 0;
+}
+
+.user-name {
+    flex-grow: 1;
 }
 
 .user-pic img {
@@ -175,14 +181,14 @@ i {
 }
 
 .last-message {
-    font-size: 12px;
+    font-size: 10px;
     color: #808080;
 }
 
 .last-access {
     text-align: center;
     align-self: flex-start;
-    font-size: 12px;
+    font-size: 10px;
     color: #808080;
     margin-left: auto;
 }
@@ -195,14 +201,17 @@ i {
 
 .right {
     background-image: url(../img/mine.jpg);
-    width: 70%;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
 }
 
 .right-main {
-    height: 100%;
+    padding: 50px 20px;
+    height: calc(100% - 140px);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .right-header {
@@ -218,15 +227,9 @@ i {
 
 /* Messages */
 
-.right-main {
-    padding: 50px 100px;
-    display: flex;
-    flex-direction: column;
-}
-
 .message {
     margin: 8px 0;
-    width: 40%;
+    width: 250px;
     padding: 15px;
     border-radius: 8px;
     position: relative;
@@ -325,3 +328,37 @@ i {
 /*/ Right footer */
 
 /*/ Right */
+
+.right {
+    display: none
+}
+
+/* Media queries */
+
+@media screen and (min-width:678px) {
+
+    .right {
+        display: block
+    }
+
+    .left {
+        max-width: 350px;
+    }
+
+    .right {
+        max-width: calc(100% - 350px);
+    }
+}
+
+@media screen and (min-width:992px) {
+
+    .right-main {
+        padding: 50px 100px;
+    }
+
+    .message {
+        width: 350px;
+    }
+}
+
+/*/ Media queries */

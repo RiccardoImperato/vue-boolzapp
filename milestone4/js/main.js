@@ -14,7 +14,7 @@ createApp({
             darkMode: false,
             user: {
                 name: 'Riccardo',
-                avatar: 'https://social.salework.net/images/default-avatar.jpg'
+                defaultAvatar: 'https://social.salework.net/images/default-avatar.jpg'
             },
             contacts: [
                 {
@@ -197,8 +197,7 @@ createApp({
             setTimeout(this.messageIn, 1000);
         },
         messageIn() {
-            this.contacts[this.currentIndex].messages.push(this.receivedMessage = { date: this.getTime(), message: 'Ok', status: 'received' });
-            return this.receivedMessage
+            this.contacts[this.currentIndex].messages.push({ date: this.getTime(), message: 'Ok', status: 'received' });
         },
         getLastMessage(contact) {
             const lastMessage = contact.messages[contact.messages.length - 1];
