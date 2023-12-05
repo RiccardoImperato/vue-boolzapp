@@ -72,7 +72,8 @@
                 <!-- Users list -->
                 <div class="users-container">
                     <div v-for="(contact, index, status) in filteredContacts()" class="user-card"
-                        :class="{active: currentIndex === index}" @click="selectUser(index)">
+                        :class="{active: currentIndex === contact.myContactIndex}"
+                        @click="selectUser(contact.myContactIndex)">
                         <div class="user-pic">
                             <img :src="contact.avatar" :alt="contact.name" :class="{darkmode: darkMode === true}">
                         </div>
@@ -91,18 +92,13 @@
             <div class="right">
                 <!-- Right header -->
                 <div class="right-header">
-                    <div v-if="filteredContacts().length === 0" class="current-user">
+                    <div class="current-user">
                         <div class="user-pic">
-                            <img :src="user.defaultAvatar" alt="Avatar" :class="{darkmode: darkMode === true}">
-                        </div>
-                    </div>
-                    <div v-else class="current-user">
-                        <div class="user-pic">
-                            <img :src="filteredContacts()[currentIndex].avatar"
-                                alt="filteredContacts()[currentIndex].name" :class="{darkmode: darkMode === true}">
+                            <img :src="contacts[currentIndex].avatar" alt="contacts[currentIndex].name"
+                                :class="{darkmode: darkMode === true}">
                         </div>
                         <div>
-                            <h4>{{ filteredContacts()[currentIndex].name }}</h4>
+                            <h4>{{ contacts[currentIndex].name }}</h4>
                             <span class="last-message">Ultimo accesso oggi alle 12.00</span>
                         </div>
                     </div>
@@ -120,8 +116,7 @@
                 </div>
                 <!-- /Right header -->
                 <!-- Right Main -->
-                <div v-if="filteredContacts().length === 0" class="right-main"></div>
-                <div v-else class="right-main">
+                <div class="right-main">
                     <!-- Messages -->
                     <div v-for="(message, status) in contacts[currentIndex].messages" class="message"
                         :class="message.status === 'received' ? 'received' : 'sent'">

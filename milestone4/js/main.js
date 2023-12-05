@@ -214,10 +214,23 @@ createApp({
         },
         filteredContacts() {
             if (this.keyContact !== null) {
-                return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.keyContact.toLowerCase()));
+                return this.contacts.map((contact, index) => {
+                    const myContact = {
+                        ...contact,
+                        myContactIndex: index,
+                    };
+                    return myContact
+                })
+                    .filter((contact) => contact.name.toLowerCase().includes(this.keyContact.toLowerCase()));
             }
             else {
-                return this.contacts;
+                return this.contacts.map((contact, index) => {
+                    const myContact = {
+                        ...contact,
+                        myContactIndex: index,
+                    };
+                    return myContact
+                })
             }
         },
         changeMode() {
